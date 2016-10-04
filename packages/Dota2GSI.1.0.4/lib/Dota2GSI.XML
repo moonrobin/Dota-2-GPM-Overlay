@@ -1,0 +1,673 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Dota2GSI</name>
+    </assembly>
+    <members>
+        <member name="T:Dota2GSI.GameState">
+            <summary>
+            A class representing various information retaining to Game State Integration of Dota 2
+            </summary>
+        </member>
+        <member name="M:Dota2GSI.GameState.#ctor(System.String)">
+            <summary>
+            Creates a GameState instance based on the passed json data.
+            </summary>
+            <param name="json_data">The passed json data</param>
+        </member>
+        <member name="P:Dota2GSI.GameState.Auth">
+            <summary>
+            Information about GSI authentication
+            </summary>
+        </member>
+        <member name="P:Dota2GSI.GameState.Provider">
+            <summary>
+            Information about the provider of this GameState
+            </summary>
+        </member>
+        <member name="P:Dota2GSI.GameState.Map">
+            <summary>
+            Information about the current map
+            </summary>
+        </member>
+        <member name="P:Dota2GSI.GameState.Player">
+            <summary>
+            Information about the local player
+            </summary>
+        </member>
+        <member name="P:Dota2GSI.GameState.Hero">
+            <summary>
+            Information about the local player's hero
+            </summary>
+        </member>
+        <member name="P:Dota2GSI.GameState.Abilities">
+            <summary>
+            Information about the local player's hero abilities
+            </summary>
+        </member>
+        <member name="P:Dota2GSI.GameState.Items">
+            <summary>
+            Information about the local player's hero items
+            </summary>
+        </member>
+        <member name="P:Dota2GSI.GameState.Previously">
+            <summary>
+            A previous GameState
+            </summary>
+        </member>
+        <member name="M:Dota2GSI.GameState.ToString">
+            <summary>
+            Returns the json string that generated this GameState instance
+            </summary>
+            <returns>Json string</returns>
+        </member>
+        <member name="P:Dota2GSI.GameStateListener.Port">
+            <summary>
+            Gets the port that is being listened
+            </summary>
+        </member>
+        <member name="P:Dota2GSI.GameStateListener.Running">
+            <summary>
+            Returns whether or not the listener is running
+            </summary>
+        </member>
+        <member name="E:Dota2GSI.GameStateListener.NewGameState">
+            <summary>
+             Event for handing a newly received game state
+            </summary>
+        </member>
+        <member name="M:Dota2GSI.GameStateListener.#ctor(System.Int32)">
+            <summary>
+            A GameStateListener that listens for connections on http://localhost:port/
+            </summary>
+            <param name="Port"></param>
+        </member>
+        <member name="M:Dota2GSI.GameStateListener.#ctor(System.String)">
+            <summary>
+            A GameStateListener that listens for connections to the specified URI
+            </summary>
+            <param name="URI">The URI to listen to</param>
+        </member>
+        <member name="M:Dota2GSI.GameStateListener.Start">
+            <summary>
+            Starts listening for GameState requests
+            </summary>
+        </member>
+        <member name="M:Dota2GSI.GameStateListener.Stop">
+            <summary>
+            Stops listening for GameState requests
+            </summary>
+        </member>
+        <member name="T:Dota2GSI.Nodes.Abilities">
+            <summary>
+            Class representing hero abilities
+            </summary>
+        </member>
+        <member name="F:Dota2GSI.Nodes.Abilities.Attributes">
+            <summary>
+            The attributes a hero has to spend on abilities
+            </summary>
+        </member>
+        <member name="P:Dota2GSI.Nodes.Abilities.Count">
+            <summary>
+            The number of abilities
+            </summary>
+        </member>
+        <member name="P:Dota2GSI.Nodes.Abilities.Item(System.Int32)">
+            <summary>
+            Gets the ability at a specified index
+            </summary>
+            <param name="index">The index</param>
+            <returns></returns>
+        </member>
+        <member name="M:Dota2GSI.Nodes.Abilities.GetEnumerator">
+            <summary>
+            Gets the IEnumerable of Abilities
+            </summary>
+        </member>
+        <member name="M:Dota2GSI.Nodes.Abilities.ToString">
+            <summary>
+            Returns the json string that generated this Abilities instance
+            </summary>
+            <returns>Json string</returns>
+        </member>
+        <member name="T:Dota2GSI.Nodes.Ability">
+            <summary>
+            Class representing ability information
+            </summary>
+        </member>
+        <member name="F:Dota2GSI.Nodes.Ability.Name">
+            <summary>
+            Ability name
+            </summary>
+        </member>
+        <member name="F:Dota2GSI.Nodes.Ability.Level">
+            <summary>
+            Ability level
+            </summary>
+        </member>
+        <member name="F:Dota2GSI.Nodes.Ability.CanCast">
+            <summary>
+            A boolean representing whether the ability can be casted
+            </summary>
+        </member>
+        <member name="F:Dota2GSI.Nodes.Ability.IsPassive">
+            <summary>
+            A boolean representing whether the ability is passive
+            </summary>
+        </member>
+        <member name="F:Dota2GSI.Nodes.Ability.IsActive">
+            <summary>
+            A boolean representing whether the ability is active
+            </summary>
+        </member>
+        <member name="F:Dota2GSI.Nodes.Ability.Cooldown">
+            <summary>
+            Ability cooldown
+            </summary>
+        </member>
+        <member name="F:Dota2GSI.Nodes.Ability.IsUltimate">
+            <summary>
+            A boolean representing whether the ability is an ultimate
+            </summary>
+        </member>
+        <member name="T:Dota2GSI.Nodes.Attributes">
+            <summary>
+            Class representing ability attributes
+            </summary>
+        </member>
+        <member name="F:Dota2GSI.Nodes.Attributes.Level">
+            <summary>
+            Amount of levels to spend
+            </summary>
+        </member>
+        <member name="T:Dota2GSI.Nodes.Auth">
+            <summary>
+            A class representing the authentication information for GSI
+            </summary>
+        </member>
+        <member name="F:Dota2GSI.Nodes.Auth.Token">
+            <summary>
+            The auth token sent by this GSI
+            </summary>
+        </member>
+        <member name="T:Dota2GSI.Nodes.Hero">
+            <summary>
+            Class representing hero information
+            </summary>
+        </member>
+        <member name="F:Dota2GSI.Nodes.Hero.ID">
+            <summary>
+            Hero ID
+            </summary>
+        </member>
+        <member name="F:Dota2GSI.Nodes.Hero.Name">
+            <summary>
+            Hero name
+            </summary>
+        </member>
+        <member name="F:Dota2GSI.Nodes.Hero.Level">
+            <summary>
+            Hero level
+            </summary>
+        </member>
+        <member name="F:Dota2GSI.Nodes.Hero.IsAlive">
+            <summary>
+            A boolean representing whether the hero is alive
+            </summary>
+        </member>
+        <member name="F:Dota2GSI.Nodes.Hero.SecondsToRespawn">
+            <summary>
+            Amount of seconds until the hero respawns
+            </summary>
+        </member>
+        <member name="F:Dota2GSI.Nodes.Hero.BuybackCost">
+            <summary>
+            The buyback cost
+            </summary>
+        </member>
+        <member name="F:Dota2GSI.Nodes.Hero.BuybackCooldown">
+            <summary>
+            The buyback cooldown
+            </summary>
+        </member>
+        <member name="F:Dota2GSI.Nodes.Hero.Health">
+            <summary>
+            Hero health
+            </summary>
+        </member>
+        <member name="F:Dota2GSI.Nodes.Hero.MaxHealth">
+            <summary>
+            Hero max health
+            </summary>
+        </member>
+        <member name="F:Dota2GSI.Nodes.Hero.HealthPercent">
+            <summary>
+            Hero health percentage
+            </summary>
+        </member>
+        <member name="F:Dota2GSI.Nodes.Hero.Mana">
+            <summary>
+            Hero mana
+            </summary>
+        </member>
+        <member name="F:Dota2GSI.Nodes.Hero.MaxMana">
+            <summary>
+            Hero max mana
+            </summary>
+        </member>
+        <member name="F:Dota2GSI.Nodes.Hero.ManaPercent">
+            <summary>
+            Hero mana percent
+            </summary>
+        </member>
+        <member name="F:Dota2GSI.Nodes.Hero.IsSilenced">
+            <summary>
+            A boolean representing whether the hero is silenced
+            </summary>
+        </member>
+        <member name="F:Dota2GSI.Nodes.Hero.IsStunned">
+            <summary>
+            A boolean representing whether the hero is stunned
+            </summary>
+        </member>
+        <member name="F:Dota2GSI.Nodes.Hero.IsDisarmed">
+            <summary>
+            A boolean representing whether the hero is disarmed
+            </summary>
+        </member>
+        <member name="F:Dota2GSI.Nodes.Hero.IsMagicImmune">
+            <summary>
+            A boolean representing whether the hero is magic immune
+            </summary>
+        </member>
+        <member name="F:Dota2GSI.Nodes.Hero.IsHexed">
+            <summary>
+            A boolean representing whether the hero is hexed
+            </summary>
+        </member>
+        <member name="F:Dota2GSI.Nodes.Hero.IsMuted">
+            <summary>
+            A boolean representing whether the hero is muteds
+            </summary>
+        </member>
+        <member name="F:Dota2GSI.Nodes.Hero.IsBreak">
+            <summary>
+            A boolean representing whether the hero is broken
+            </summary>
+        </member>
+        <member name="F:Dota2GSI.Nodes.Hero.HasDebuff">
+            <summary>
+            A boolean representing whether the hero is debuffed
+            </summary>
+        </member>
+        <member name="T:Dota2GSI.Nodes.Item">
+            <summary>
+            Class representing item information
+            </summary>
+        </member>
+        <member name="F:Dota2GSI.Nodes.Item.Name">
+            <summary>
+            Item name
+            </summary>
+        </member>
+        <member name="F:Dota2GSI.Nodes.Item.ContainsRune">
+            <summary>
+            The name of the rune cotnained inside this item.
+            <note type="note">Possible rune names: empty, arcane, bounty, double_damage, haste, illusion, invisibility, regen</note>
+            </summary>
+        </member>
+        <member name="F:Dota2GSI.Nodes.Item.CanCast">
+            <summary>
+            A boolean representing whether this item can be casted
+            </summary>
+        </member>
+        <member name="F:Dota2GSI.Nodes.Item.Cooldown">
+            <summary>
+            Item's cooldown
+            </summary>
+        </member>
+        <member name="F:Dota2GSI.Nodes.Item.IsPassive">
+            <summary>
+            A boolean representing whether this item is passive
+            </summary>
+        </member>
+        <member name="F:Dota2GSI.Nodes.Item.Charges">
+            <summary>
+            The amount of charges on this item
+            </summary>
+        </member>
+        <member name="T:Dota2GSI.Nodes.Items">
+            <summary>
+            Class representing item information
+            </summary>
+        </member>
+        <member name="P:Dota2GSI.Nodes.Items.CountInventory">
+            <summary>
+            Number of items in the inventory
+            </summary>
+        </member>
+        <member name="P:Dota2GSI.Nodes.Items.Inventory">
+            <summary>
+            Gets the IEnumerable of the inventory items
+            </summary>
+        </member>
+        <member name="P:Dota2GSI.Nodes.Items.CountStash">
+            <summary>
+            Number of items in the stash
+            </summary>
+        </member>
+        <member name="P:Dota2GSI.Nodes.Items.Stash">
+            <summary>
+            Gets the IEnumerable of the stash items
+            </summary>
+        </member>
+        <member name="M:Dota2GSI.Nodes.Items.GetInventoryAt(System.Int32)">
+            <summary>
+            Gets the inventory item at the specified index
+            </summary>
+            <param name="index">The index</param>
+            <returns></returns>
+        </member>
+        <member name="M:Dota2GSI.Nodes.Items.GetStashAt(System.Int32)">
+            <summary>
+            Gets the stash item at the specified index
+            </summary>
+            <param name="index">The index</param>
+            <returns></returns>
+        </member>
+        <member name="M:Dota2GSI.Nodes.Items.InventoryContains(System.String)">
+            <summary>
+            Checks if item exists in the inventory
+            </summary>
+            <param name="itemname">The item name</param>
+            <returns>A boolean if item is in the inventory</returns>
+        </member>
+        <member name="M:Dota2GSI.Nodes.Items.StashContains(System.String)">
+            <summary>
+            Checks if item exists in the stash
+            </summary>
+            <param name="itemname">The item name</param>
+            <returns>A boolean if item is in the stash</returns>
+        </member>
+        <member name="M:Dota2GSI.Nodes.Items.InventoryIndexOf(System.String)">
+            <summary>
+            Gets index of the first occurence of the item in the inventory
+            </summary>
+            <param name="itemname">The item name</param>
+            <returns>The first index at which item is found, -1 if not found.</returns>
+        </member>
+        <member name="M:Dota2GSI.Nodes.Items.StashIndexOf(System.String)">
+            <summary>
+            Gets index of the first occurence of the item in the stash
+            </summary>
+            <param name="itemname">The item name</param>
+            <returns>The first index at which item is found, -1 if not found.</returns>
+        </member>
+        <member name="T:Dota2GSI.Nodes.DOTA_GameState">
+            <summary>
+            Enum list for each Game State
+            </summary>
+        </member>
+        <member name="F:Dota2GSI.Nodes.DOTA_GameState.Undefined">
+            <summary>
+            Undefined
+            </summary>
+        </member>
+        <member name="F:Dota2GSI.Nodes.DOTA_GameState.DOTA_GAMERULES_STATE_DISCONNECT">
+            <summary>
+            Disconnected
+            </summary>
+        </member>
+        <member name="F:Dota2GSI.Nodes.DOTA_GameState.DOTA_GAMERULES_STATE_GAME_IN_PROGRESS">
+            <summary>
+            Game is in progress
+            </summary>
+        </member>
+        <member name="F:Dota2GSI.Nodes.DOTA_GameState.DOTA_GAMERULES_STATE_HERO_SELECTION">
+            <summary>
+            Players are currently selecting heroes
+            </summary>
+        </member>
+        <member name="F:Dota2GSI.Nodes.DOTA_GameState.DOTA_GAMERULES_STATE_INIT">
+            <summary>
+            Game is starting
+            </summary>
+        </member>
+        <member name="F:Dota2GSI.Nodes.DOTA_GameState.DOTA_GAMERULES_STATE_LAST">
+            <summary>
+            Game is ending
+            </summary>
+        </member>
+        <member name="F:Dota2GSI.Nodes.DOTA_GameState.DOTA_GAMERULES_STATE_POST_GAME">
+            <summary>
+            Game has ended, post game scoreboard
+            </summary>
+        </member>
+        <member name="F:Dota2GSI.Nodes.DOTA_GameState.DOTA_GAMERULES_STATE_PRE_GAME">
+            <summary>
+            Game has started, pre game preparations
+            </summary>
+        </member>
+        <member name="F:Dota2GSI.Nodes.DOTA_GameState.DOTA_GAMERULES_STATE_STRATEGY_TIME">
+            <summary>
+            Players are selecting/banning heroes
+            </summary>
+        </member>
+        <member name="F:Dota2GSI.Nodes.DOTA_GameState.DOTA_GAMERULES_STATE_WAIT_FOR_PLAYERS_TO_LOAD">
+            <summary>
+            Waiting for everyone to connect and load
+            </summary>
+        </member>
+        <member name="F:Dota2GSI.Nodes.DOTA_GameState.DOTA_GAMERULES_STATE_CUSTOM_GAME_SETUP">
+            <summary>
+            Game is a custom game
+            </summary>
+        </member>
+        <member name="T:Dota2GSI.Nodes.PlayerTeam">
+            <summary>
+            Enum list for each player team
+            </summary>
+        </member>
+        <member name="F:Dota2GSI.Nodes.PlayerTeam.Undefined">
+            <summary>
+            Undefined
+            </summary>
+        </member>
+        <member name="F:Dota2GSI.Nodes.PlayerTeam.None">
+            <summary>
+            No team
+            </summary>
+        </member>
+        <member name="F:Dota2GSI.Nodes.PlayerTeam.Dire">
+            <summary>
+            Dire team
+            </summary>
+        </member>
+        <member name="F:Dota2GSI.Nodes.PlayerTeam.Radiant">
+            <summary>
+            Radiant team
+            </summary>
+        </member>
+        <member name="T:Dota2GSI.Nodes.Map">
+            <summary>
+            Class representing information about the map
+            </summary>
+        </member>
+        <member name="F:Dota2GSI.Nodes.Map.Name">
+            <summary>
+            Name of the current map
+            </summary>
+        </member>
+        <member name="F:Dota2GSI.Nodes.Map.MatchID">
+            <summary>
+            Match ID of the current game
+            </summary>
+        </member>
+        <member name="F:Dota2GSI.Nodes.Map.GameTime">
+            <summary>
+            Game time
+            </summary>
+        </member>
+        <member name="F:Dota2GSI.Nodes.Map.ClockTime">
+            <summary>
+            Clock time (time shown at the top of the game hud)
+            </summary>
+        </member>
+        <member name="F:Dota2GSI.Nodes.Map.IsDaytime">
+            <summary>
+            A boolean representing whether it is daytime
+            </summary>
+        </member>
+        <member name="F:Dota2GSI.Nodes.Map.IsNightstalker_Night">
+            <summary>
+            A boolean representing whether Nightstalker forced night time
+            </summary>
+        </member>
+        <member name="F:Dota2GSI.Nodes.Map.GameState">
+            <summary>
+            Current game state
+            </summary>
+        </member>
+        <member name="F:Dota2GSI.Nodes.Map.Win_team">
+            <summary>
+            The winning team
+            </summary>
+        </member>
+        <member name="F:Dota2GSI.Nodes.Map.CustomGameName">
+            <summary>
+            The name of the custom game
+            </summary>
+        </member>
+        <member name="F:Dota2GSI.Nodes.Map.Ward_Purchase_Cooldown">
+            <summary>
+            The cooldown on ward purchases
+            </summary>
+        </member>
+        <member name="T:Dota2GSI.Nodes.PlayerActivity">
+            <summary>
+            Enum for various player activities
+            </summary>
+        </member>
+        <member name="F:Dota2GSI.Nodes.PlayerActivity.Undefined">
+            <summary>
+            Undefined
+            </summary>
+        </member>
+        <member name="F:Dota2GSI.Nodes.PlayerActivity.Menu">
+            <summary>
+            In a menu
+            </summary>
+        </member>
+        <member name="F:Dota2GSI.Nodes.PlayerActivity.Playing">
+            <summary>
+            In a game
+            </summary>
+        </member>
+        <member name="T:Dota2GSI.Nodes.Player">
+            <summary>
+            Class representing player information
+            </summary>
+        </member>
+        <member name="F:Dota2GSI.Nodes.Player.SteamID">
+            <summary>
+            Player's steam ID
+            </summary>
+        </member>
+        <member name="F:Dota2GSI.Nodes.Player.Name">
+            <summary>
+            Player's name
+            </summary>
+        </member>
+        <member name="F:Dota2GSI.Nodes.Player.Activity">
+            <summary>
+            Player's current activity state
+            </summary>
+        </member>
+        <member name="F:Dota2GSI.Nodes.Player.Kills">
+            <summary>
+            Player's amount of kills
+            </summary>
+        </member>
+        <member name="F:Dota2GSI.Nodes.Player.Deaths">
+            <summary>
+            Player's amount of deaths
+            </summary>
+        </member>
+        <member name="F:Dota2GSI.Nodes.Player.Assists">
+            <summary>
+            Player's amount of assists
+            </summary>
+        </member>
+        <member name="F:Dota2GSI.Nodes.Player.LastHits">
+            <summary>
+            Player's amount of last hits
+            </summary>
+        </member>
+        <member name="F:Dota2GSI.Nodes.Player.Denies">
+            <summary>
+            Player's amount of denies
+            </summary>
+        </member>
+        <member name="F:Dota2GSI.Nodes.Player.KillStreak">
+            <summary>
+            Player's killstreak
+            </summary>
+        </member>
+        <member name="F:Dota2GSI.Nodes.Player.Team">
+            <summary>
+            Player's team
+            </summary>
+        </member>
+        <member name="F:Dota2GSI.Nodes.Player.Gold">
+            <summary>
+            Player's amount of gold
+            </summary>
+        </member>
+        <member name="F:Dota2GSI.Nodes.Player.GoldReliable">
+            <summary>
+            Player's amount of reliable gold
+            </summary>
+        </member>
+        <member name="F:Dota2GSI.Nodes.Player.GoldUnreliable">
+            <summary>
+            Player's amount of unreliable gold
+            </summary>
+        </member>
+        <member name="F:Dota2GSI.Nodes.Player.GoldPerMinute">
+            <summary>
+            PLayer's gold per minute
+            </summary>
+        </member>
+        <member name="F:Dota2GSI.Nodes.Player.ExperiencePerMinute">
+            <summary>
+            Player's experience per minute
+            </summary>
+        </member>
+        <member name="T:Dota2GSI.Nodes.Provider">
+            <summary>
+            Information about the provider of this GameState
+            </summary>
+        </member>
+        <member name="F:Dota2GSI.Nodes.Provider.Name">
+            <summary>
+            Game name
+            </summary>
+        </member>
+        <member name="F:Dota2GSI.Nodes.Provider.AppID">
+            <summary>
+            Game's Steam AppID
+            </summary>
+        </member>
+        <member name="F:Dota2GSI.Nodes.Provider.Version">
+            <summary>
+            Game's version
+            </summary>
+        </member>
+        <member name="F:Dota2GSI.Nodes.Provider.TimeStamp">
+            <summary>
+            Current timestamp
+            </summary>
+        </member>
+    </members>
+</doc>
